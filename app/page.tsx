@@ -19,22 +19,23 @@ export default function Home() {
         <div className="text-center">
           <h1 className="text-5xl font-bold tracking-tight  sm:text-6xl">
             <AnimatedText
-              text="Umwelt"
+              text="Photography"
               once
               className="text-5xl font-bold tracking-tight  sm:text-6xl"
             />
           </h1>
           <p className="mt-6 text-sm  md:text-md leading-6 md:leading-8 text-muted-foreground">
-            \/ˈʊmvɛlt/ noun (in ethology)
+            /ˈআলোকচিত্র / छविचित्रण / عکاسی
           </p>
           <blockquote>
             <p className="mt-6 text-md md:text-xl font-bold md:font-normal  underline-offset-4	 leading-8">
-              the world as it is experienced by a particular organism.
+            The world through my lenses
             </p>
           </blockquote>
           <p className="my-6 mb-12 text-sm md:leading-8 text-muted-foreground">
-            &quot;the worlds they perceive, their Umwelten, are all
-            different&quot;
+            &quot;
+            हर एक नज़र में बसी एक अनमोल याद है।
+           &quot;
           </p>
           <Separator />
           <div className="pt-12 text-xs md:text-normal mb-5 lg:hidden opacity-60 ">
