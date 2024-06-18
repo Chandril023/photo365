@@ -11,10 +11,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    template: "Thy Umwelt | %s ",
-    default: "Thy Umwelt",
+    template: "Arghyadeep's Photography | %s ",
+    default: "Arghyadeep's Photography ",
   },
-  description: "A website by Ashwin Manghat",
+  description: "A website by grwm365",
 };
 
 interface RootLayoutProps {
@@ -30,7 +30,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children, modal }) => {
           <Particles className="absolute inset-0 -z-10" />
           {children}
           <h2 className="text-center bottom-3 text-xs md:text-normal left-0 opacity-60 right-0 m-auto w-5/6 md:w-1/2  scroll-m-20 p-5 pt-10 text-md  tracking-tight transition-colors first:mt-0">
-            by Ashwin Manghat
+            by grwm365
           </h2>
         </Providers>
         <GoogleAnalytics />
