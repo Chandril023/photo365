@@ -7,7 +7,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-const AnimationWrapper = ({ children }: Props) => {
+function AnimationWrapper(props: Props) {
   return (
     <AnimatePresence>
       <motion.div
@@ -16,10 +16,10 @@ const AnimationWrapper = ({ children }: Props) => {
         exit={{ opacity: 0, y: 15 }}
         transition={{ delay: 0, ease: "easeInOut", staggerChildren: 0.3 }}
       >
-        {children}
+        {props.children}
       </motion.div>
     </AnimatePresence>
   );
-};
+}
 
 export default AnimationWrapper;

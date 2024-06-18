@@ -59,9 +59,9 @@ export default function Menu() {
               onClick={() => setMobileMenuOpen(false)}
             >
               <p className="scroll-m-20 text-md font-extrabold tracking-tight lg:text-lg">
-                Thy Umwelt
+                Arghya
               </p>
-              <span className="sr-only">Thy Umwelt</span>
+              <span className="sr-only">Arghyadeep</span>
             </Link>
             <button
               type="button"

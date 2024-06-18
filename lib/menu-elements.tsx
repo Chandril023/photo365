@@ -18,10 +18,11 @@ export default function MenuElements({
   const pathname = usePathname();
 
   const navigation = [
+    { name: "Home", href: "/" },
     { name: "Photo-Series", href: "/photo-series" },
     { name: "Photography", href: "/photography" },
-    { name: "Projects", href: "/projects" },
     { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
   ];
   return (
     <ul className={`${className} flex justify-center`}>

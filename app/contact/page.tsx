@@ -112,7 +112,6 @@ async function Page({}: Props) {
         This page is maintained and designed by grwm365
       </p>
     </AnimationWrapper>
-    
   );
 }
 

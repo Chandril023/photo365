@@ -9,7 +9,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Home",
   description:
-    "The world as it is experienced by a particular organism. A website by Ashwin Manghat",
+    "The world as it is experienced by a particular organism.",
 };
 
 export default function Home() {
@@ -19,7 +19,7 @@ export default function Home() {
         <div className="text-center">
           <h1 className="text-5xl font-bold tracking-tight  sm:text-6xl">
             <AnimatedText
-              text="Photography"
+              text="Arghyadeep"
               once
               className="text-5xl font-bold tracking-tight  sm:text-6xl"
             />
