@@ -6,6 +6,46 @@ import MenuElements from "@/lib/menu-elements";
 import { motion } from "framer-motion";
 import { Metadata } from "next";
 
+interface ImageProps {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+const images: ImageProps[] = [
+  { src: "/images/image1.png",
+    alt: 'Image 1',
+    width: 800,
+    height: 600,
+  },
+  {
+    src: '/images/image2.png',
+    alt: 'Image 2',
+    width: 800,
+    height: 600,
+  },
+  {
+    src: '/images/image3.png',
+    alt: 'Image 3',
+    width: 800,
+    height: 600,
+  },
+  {
+    src: '/images/image4.png',
+    alt: 'Image 4',
+    width: 800,
+    height: 600,
+  },
+  {
+    src: '/images/image5.png',
+    alt: 'Image 5',
+    width: 800,
+    height: 600,
+  },
+];
+
+import Image from "next/image";
+import ModalSwiper from "@/components/swiper/modal-swiper";
 export const metadata: Metadata = {
   title: "Home",
   description:
@@ -14,6 +54,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
+    <>
     <AnimationWrapper>
       <div className="flex relative isolate items-center justify-center h-[calc(100vh-160px)] align-middle px-5">
         <div className="text-center">
@@ -50,5 +91,20 @@ export default function Home() {
         </div>
       </div>
     </AnimationWrapper>
+    <AnimationWrapper>
+    <div>
+      {images.map((image, index) => (
+        <div key={index}>
+          <Image
+            src={image.src}
+            alt={image.alt}
+            width={image.width}
+            height={image.height}
+          />
+        </div>
+      ))}
+    </div>
+    </AnimationWrapper>
+</>
   );
 }

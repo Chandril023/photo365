@@ -1,20 +1,14 @@
-import React, { Suspense } from "react";
-import { Header } from "@/components/ui/header-on-page";
 import Link from "next/link";
-import AnimationWrapper from "@/components/ui/animation-wrapper";
-
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "About",
-  description: "About me and where to find me.",
-};
-
-type Props = {};
-async function Page({}: Props) {
+const About = () => {
   return (
-    <AnimationWrapper>
-        <div className="flex flex-row justify-center items-center my-10">
+    <>
+     <section className="bg-white dark:bg-transparent">
+    <div className="gap-16 items-center py-8 px-8 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-8">
+        <div className="font-light text-gray-500 sm:text-lg dark:text-gray-400">
+            <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Photographer , Footballer</h2>
+            <p className="mb-4">Aloha.I am Arghyadeep Naskar,a freelance photographer and videographer with a passion for capturing moments that tell compelling stories. Through my lens, I strive to blend creativity with technical precision to deliver visual narratives that resonate. </p>
+            <p>Whether it's freezing a fleeting expression or crafting a cinematic sequence, I am dedicated to exceeding expectations and bringing visions to life. With a keen eye for detail and a commitment to excellence, I specialize in creating impactful imagery that leaves a lasting impression.</p>
+            <div className="flex flex-row justify-left items-left my-10">
       <Link
           href="mailto:arghyadeepwithnaskar@gmail.com"
           className="mx-5 shrink"
@@ -81,39 +75,17 @@ async function Page({}: Props) {
           </svg>
         </Link>
         </div>
-      <div className="flex justify-center p-10">
-        
-  <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-      <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Contact Us</h2>
+        </div>
       
-      <form action="#" className="space-y-8"><p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Planning a photography project? Have feedback on a recent shoot? Interested in our photography services? Let us know how we can help.</p>
-          <div>
-              <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
-              <input type="email" id="email" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="name@flowbite.com" required />
-          </div>
-          <div>
-              <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
-              <input type="text" id="subject" className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Let us know how we can help you" required />
-          </div>
-          <div className="sm:col-span-2">
-              <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
-              <textarea 
-              id="message" 
-              rows={6}
-              className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" 
-              placeholder="Leave a comment..."></textarea>
-          </div>
-          <button type="submit" className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 border-transparent dark:border-white">Send message</button>
-      </form>
-  </div>
+        <div className="grid grid-cols-2 gap-4 mt-8">
+            <img className="w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png" alt="office content 1" />
+            <img className="mt-4 w-full lg:mt-10 rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png" alt="office content 2"/>
+        </div>
+    </div>
 
-      </div>
-      <p className="text-muted-foreground text-center p-10">
-        This page is maintained and designed by grwm365
-      </p>
-    </AnimationWrapper>
-    
+</section>
+    </>
   );
 }
 
-export default Page;
+export default About;
