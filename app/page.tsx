@@ -5,7 +5,7 @@ import { Separator } from "@/components/ui/separator";
 import MenuElements from "@/lib/menu-elements";
 import { motion } from "framer-motion";
 import { Metadata } from "next";
-
+import Carousel from "@/components/ui/carousel";
 interface ImageProps {
   src: string;
   alt: string;
@@ -56,7 +56,7 @@ export default function Home() {
   return (
     <>
     <AnimationWrapper>
-      <div className="flex relative isolate items-center justify-center h-[calc(100vh-160px)] align-middle px-5">
+      <div className="flex relative isolate items-center my-8 justify-center align-middle px-5">
         <div className="text-center">
           <h1 className="text-5xl font-bold tracking-tight  sm:text-6xl">
             <AnimatedText
@@ -78,31 +78,21 @@ export default function Home() {
             हर एक नज़र में बसी एक अनमोल याद है।
            &quot;
           </p>
-          <Separator />
           <div className="pt-12 text-xs md:text-normal mb-5 lg:hidden opacity-60 ">
             {/* <p className="m-6 ">Dive in:</p> */}
             <MenuElements className="md:p-5" />
           </div>
+          <Separator/>
           {/* <div className="lg:hidden opacity-60">
             <ModeToggle />
           </div> */}
-          <ThemeToggle className="test lg:hidden opacity-60" />
           {/* <ModeToggle className="test lg:hidden opacity-60" /> */}
         </div>
       </div>
     </AnimationWrapper>
     <AnimationWrapper>
-    <div>
-      {images.map((image, index) => (
-        <div key={index}>
-          <Image
-            src={image.src}
-            alt={image.alt}
-            width={image.width}
-            height={image.height}
-          />
-        </div>
-      ))}
+    <div className="overflow-x-hidden overflow-y-hidden w-full">
+    <Carousel />
     </div>
     </AnimationWrapper>
 </>

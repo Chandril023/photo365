@@ -8,7 +8,6 @@ import { ImageSeriesProps } from "@/utils/types";
 import AnimationWrapper from "@/components/ui/animation-wrapper";
 import { Metadata } from "next";
 import './page.css'
-
 type Props = {};
 
 export const metadata: Metadata = {
