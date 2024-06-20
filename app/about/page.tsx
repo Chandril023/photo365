@@ -10,7 +10,7 @@ const About = () => {
             <p>Whether it's freezing a fleeting expression or crafting a cinematic sequence, I am dedicated to exceeding expectations and bringing visions to life. With a keen eye for detail and a commitment to excellence, I specialize in creating impactful imagery that leaves a lasting impression.</p>
             <div className="flex flex-row justify-left items-left my-10">
       <Link
-          href="mailto:arghyadeepwithnaskar@gmail.com"
+          href=""
           className="mx-5 shrink"
           target="_blank"
         >
