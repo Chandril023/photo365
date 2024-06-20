@@ -7,7 +7,7 @@ const About = () => {
         <div className="font-light text-gray-500 sm:text-lg dark:text-gray-400">
             <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Photographer , Footballer</h2>
             <p className="mb-4">Aloha.I am Arghyadeep Naskar,a freelance photographer and videographer with a passion for capturing moments that tell compelling stories. Through my lens, I strive to blend creativity with technical precision to deliver visual narratives that resonate. </p>
-            <p>Whether it's freezing a fleeting expression or crafting a cinematic sequence, I am dedicated to exceeding expectations and bringing visions to life. With a keen eye for detail and a commitment to excellence, I specialize in creating impactful imagery that leaves a lasting impression.</p>
+            <p>Whether it&apos;s freezing a fleeting expression or crafting a cinematic sequence, I am dedicated to exceeding expectations and bringing visions to life. With a keen eye for detail and a commitment to excellence, I specialize in creating impactful imagery that leaves a lasting impression.</p>
             <div className="flex flex-row justify-left items-left my-10">
       <Link
           href=""
