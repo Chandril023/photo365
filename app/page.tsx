@@ -3,9 +3,10 @@ import AnimationWrapper from "@/components/ui/animation-wrapper";
 
 import { Separator } from "@/components/ui/separator";
 import MenuElements from "@/lib/menu-elements";
-import { motion } from "framer-motion";
+
 import { Metadata } from "next";
 import Carousel from "@/components/ui/carousel";
+import ThemeToggle from "@/components/ui/my-theme-toggle";
 interface ImageProps {
   src: string;
   alt: string;
@@ -76,11 +77,12 @@ export default function Home() {
             हर एक नज़र में बसी एक अनमोल याद है।
            &quot;
           </p>
+          <ThemeToggle/>
           <div className="pt-12 text-xs md:text-normal mb-5 lg:hidden opacity-60 ">
+            
             {/* <p className="m-6 ">Dive in:</p> */}
             <MenuElements className="md:p-5" />
           </div>
-          <Separator/>
           {/* <div className="lg:hidden opacity-60">
             <ModeToggle />
           </div> */}
