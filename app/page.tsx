@@ -1,6 +1,6 @@
 import { AnimatedText } from "@/components/ui/animated-text";
 import AnimationWrapper from "@/components/ui/animation-wrapper";
-import ThemeToggle from "@/components/ui/my-theme-toggle";
+
 import { Separator } from "@/components/ui/separator";
 import MenuElements from "@/lib/menu-elements";
 import { motion } from "framer-motion";
@@ -44,8 +44,6 @@ const images: ImageProps[] = [
   },
 ];
 
-import Image from "next/image";
-import ModalSwiper from "@/components/swiper/modal-swiper";
 export const metadata: Metadata = {
   title: "Home",
   description:
@@ -58,7 +56,7 @@ export default function Home() {
     <AnimationWrapper>
       <div className="flex relative isolate items-center my-8 justify-center align-middle px-5">
         <div className="text-center">
-          <h1 className="text-5xl font-bold tracking-tight  sm:text-6xl">
+          <h1 className="text-5xl font-bold tracking-tight  sm:text-6xl my-10">
             <AnimatedText
               text="Arghyadeep"
               once
