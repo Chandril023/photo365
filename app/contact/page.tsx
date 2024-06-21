@@ -1,17 +1,44 @@
+'use client'
 import React, { Suspense } from "react";
-import { Header } from "@/components/ui/header-on-page";
 import Link from "next/link";
 import AnimationWrapper from "@/components/ui/animation-wrapper";
-
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "About",
-  description: "About me and where to find me.",
-};
-
+const apiKey = "2a8d47a9-835d-4791-a00f-d407265dce12";
 type Props = {};
 async function Page({}: Props) {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    // Extract form data
+    const formData = {
+      access_key: apiKey,
+      name: (e.currentTarget.elements.namedItem("name") as HTMLInputElement).value,
+      Phone: (e.currentTarget.elements.namedItem("Phone") as HTMLInputElement).value,
+
+      message: (e.currentTarget.elements.namedItem("message") as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        console.log("Form submitted successfully:", result);
+        window.location.href = "/success";
+
+      } else {
+        console.error("Form submission error:", result);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
   return (
     <AnimationWrapper>
         <div className="flex flex-row justify-center items-center my-10">
@@ -85,24 +112,24 @@ async function Page({}: Props) {
   <div className=" px-4 mx-auto max-w-screen-md">
       <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Coffee Maybe?</h2>
       
-      <form action="#" className="space-y-8"><p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Planning a photography project? Have feedback on a recent shoot? Interested in our photography services? Let us know how we can help.</p>
-          <div>
-              <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
-              <input type="email" id="email" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="name@flowbite.com" required />
+      <form onSubmit={handleSubmit} className="space-y-8"><p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Planning a photography project? Have feedback on a recent shoot? Interested in our photography services? Let us know how we can help.</p>
+      <div>
+              <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Name</label>
+              <input type="text" id="name" className="shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Example : arghyadeep naskar" required />
           </div>
           <div>
-              <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
-              <input type="text" id="subject" className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Let us know how we can help you" required />
+              <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Phone Number</label>
+              <input type="text" id="Phone"  className="shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Example : 9876543210" style={{ WebkitAppearance: "none", MozAppearance: "textfield" }} required />
           </div>
           <div className="sm:col-span-2">
               <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
               <textarea 
               id="message" 
               rows={6}
-              className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" 
+              className="block p-2.5 w-full text-sm text-black bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500" 
               placeholder="Leave a comment..."></textarea>
           </div>
-          <button type="submit" className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 border-transparent dark:border-white">Send message</button>
+          <button type="submit" className="py-3 px-5 bg-white text-sm font-medium text-center text-black rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 border-transparent dark:border-white">Send message</button>
       </form>
   </div>
       </div>
