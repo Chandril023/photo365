@@ -6,6 +6,7 @@ import Menu from "@/components/ui/menu";
 import { Particles } from "@/components/particles";
 import { Providers } from "@/lib/providers";
 import GoogleAnalytics from "./GoogleAnalytics";
+import { Link } from "lucide-react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,7 +31,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children, modal }) => {
           <Particles className="absolute inset-0 -z-10" />
           {children}
           <h2 className="text-center bottom-3 text-xs md:text-normal left-0 opacity-60 right-0 m-auto w-5/6 md:w-1/2  scroll-m-20 p-5 pt-10 text-md  tracking-tight transition-colors first:mt-0">
-            by grwm365
+            by Chandril @ grwm365 
           </h2>
         </Providers>
         <GoogleAnalytics />

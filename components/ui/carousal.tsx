@@ -1,7 +1,7 @@
 import React from "react";
 import './carousal.css';
 
-const Carousel = () => {
+const Carousal = () => {
 
   return (
     
@@ -63,4 +63,4 @@ Kolkata, India
   );
 };
 
-export default Carousel;
+export default Carousal;

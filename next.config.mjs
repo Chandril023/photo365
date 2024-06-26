@@ -7,7 +7,10 @@ import withPlaiceholder from "@plaiceholder/next";
 const nextConfig = {
   output: 'standalone',
 
+  images: {
+    domains: ['images.ctfassets.net','downloads.ctfassets.net','images.pexels.com']
+    
+  },
 }
 
 export default withPlaiceholder(nextConfig);
-

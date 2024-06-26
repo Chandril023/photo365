@@ -26,6 +26,6 @@
       "@styles/*": ["./styles/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/SocialIcons.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/SocialIcons.tsx", "components/container.js", "lib/utils.ts"],
   "exclude": ["node_modules"]
 }
