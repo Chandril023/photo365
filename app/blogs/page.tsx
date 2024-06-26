@@ -25,10 +25,10 @@ const Blog = () => {
 				</div>
 			</div>
 			<div className="relative col-span-12 px-4 space-y-6 sm:col-span-9 color-black">
-      <div className="sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:bg-gray-500 before:dark:bg-gray-500 mx-2"> 
+      <div className="sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:bg-gray-500 before:dark:bg-gray-500 mx-2 "> 
         {posts.map((blog, index) => (
-              <div key={index} className="border-l-4 border-black dark:border-white w-full px-10 md:w-2/3 lg:w-1/2 xl:w border-black sm:border-none  ">
-               <div className="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:bg-black dark:before:bg-white">
+              <div key={index} className="border-l-4 border-black dark:border-white w-full px-10 md:w-2/3 lg:w-1/2 xl:w border-black sm:border-none  my-2">
+               <div className="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:bg-black  dark:before:bg-white inline flex">
                   <h3 className="text-xl font-semibold tracking-wide">{blog.title}</h3>
                   <time className="text-xs my-3 tracking-wide uppercase dark:text-white">{blog.date.toLocaleDateString()}</time>
                   <p className="mt-3">{blog.excerpt}</p>
