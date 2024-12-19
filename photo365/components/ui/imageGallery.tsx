@@ -1,7 +1,6 @@
-"use client"
-
 import React, { useState, useEffect } from 'react';
 import { X, Search, ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 
 interface Image {
   _id: string;
@@ -10,7 +9,7 @@ interface Image {
   title?: string;
 }
 
-const GalleryComponent = ({
+const ImageGallery = ({
   apiEndpoint = 'https://photo365.onrender.com/api/images'
 }) => {
   const [images, setImages] = useState<Image[]>([]);
@@ -33,7 +32,7 @@ const GalleryComponent = ({
         }
         const data: Image[] = await response.json();
         setImages(data);
-        
+
         const uniqueTags = [...new Set(data.map(img => img.tag))] as string[];
         setTags(uniqueTags);
       } catch (err) {
@@ -66,6 +65,8 @@ const GalleryComponent = ({
     );
   };
 
+  const clearSearch = () => setSearchTerm('');
+
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
@@ -95,6 +96,14 @@ const GalleryComponent = ({
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full pl-10 pr-4 py-2 bg-transparent border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none text-white"
           />
+          {searchTerm && (
+            <button
+              onClick={clearSearch}
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          )}
         </div>
 
         <div className="flex flex-wrap gap-2 justify-center">
@@ -132,10 +141,13 @@ const GalleryComponent = ({
                 onClick={() => setSelectedImage(image)}
               >
                 <figure className="relative m-0 overflow-hidden h-full">
-                  <img
+                  <Image
                     src={image.url}
                     alt={image.title || image.tag}
+                    width={1080} // Fixed Instagram-like size
+                    height={1080} // Fixed Instagram-like size
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300 
                                  after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:w-[200%] after:h-[200%] 
@@ -194,9 +206,11 @@ const GalleryComponent = ({
               <X className="w-8 h-8" />
             </button>
             <div className="rounded-lg overflow-hidden">
-              <img
+              <Image
                 src={selectedImage.url}
                 alt={selectedImage.title || selectedImage.tag}
+                width={1080} // Fixed Instagram-like size
+                height={1080} // Fixed Instagram-like size
                 className="w-full h-auto"
               />
               <div className="p-4">
@@ -212,4 +226,4 @@ const GalleryComponent = ({
   );
 };
 
-export default GalleryComponent;
+export default ImageGallery;

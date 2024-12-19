@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { Plus, Trash2, Edit2, X } from "lucide-react";
 import axios from "axios";
+import {  useRouter } from "next/navigation";
+import { useUser } from "@clerk/nextjs";
 
 // Type definitions for images
 type ImageType = {
@@ -12,6 +14,25 @@ type ImageType = {
   title: string;
   tag: string;
 };
+
+
+function RedirectOnSignOut(): null {
+  const { isLoaded, isSignedIn } = useUser();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (isLoaded && !isSignedIn) {
+      // Redirect to the login page and reload
+      router.push("/");
+      
+    }
+  }, [isLoaded, isSignedIn, router]);
+
+  return null;
+}
+
+
+
 
 const API_BASE_URL = "https://photo365.onrender.com/api/images";
 
@@ -92,9 +113,10 @@ const AdminPage: React.FC = () => {
         <h1 className="text-2xl font-semibold text-gray-800">Admin Panel</h1>
         <div className="flex items-center gap-6">
           <SignedIn>
-            <UserButton afterSignOutUrl="/" />
+            <UserButton />
           </SignedIn>
           <SignedOut>
+          <RedirectOnSignOut />
             <SignInButton>
               <button className="text-sm text-blue-600 hover:text-blue-800 transition duration-200">
                 Sign In

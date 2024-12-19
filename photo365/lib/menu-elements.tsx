@@ -1,14 +1,10 @@
-"use client";
-
-import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-
 import { useUser } from "@clerk/nextjs";
 import { useEffect } from "react";
-
- function RedirectOnSignIn(): null {
+import Link from "next/link";
+function RedirectOnSignIn(): null {
   const { isLoaded, isSignedIn, user } = useUser();
   const router = useRouter(); // Next.js uses useRouter instead of useNavigate
 
@@ -47,32 +43,46 @@ export default function MenuElements({
     <ul className={`${className} flex justify-center`}>
       {navigation.map((item) => (
         <li key={item.name}>
-          <Link
-            onClick={() => (mobileMenuOpen ? setMobileMenuOpen(false) : "")}
-            href={item.href}
-            className={`${className} ${
-              pathname === item.href ? "font-bold" : "no underline"
-            } underline leading-8 px-2 md:px-4 py-2 items-center underline-offset-8 break-normal inline-block hover:underline break-keep`}
-          >
-            {pathname === item.href && (
-              <motion.span
-                layoutId="underline"
-                className="absolute left-0 bottom-0 top-full block z-90 h-[1px] w-full bg-black dark:bg-white"
-              ></motion.span>
-            )}
-            {item.name}
-          </Link>
+          {item.name === "Home" ? (
+            // Using a regular anchor tag for the "Home" link to trigger a full reload
+            <a
+              onClick={() => (mobileMenuOpen ? setMobileMenuOpen(false) : "")}
+              href={item.href}
+              className={`${className} ${
+                pathname === item.href ? "font-bold" : "no underline"
+              } underline leading-8 px-2 md:px-4 py-2 items-center underline-offset-8 break-normal inline-block hover:underline break-keep`}
+            >
+              {item.name}
+            </a>
+          ) : (
+            // For other links, continue using Next.js Link
+            <Link
+              onClick={() => (mobileMenuOpen ? setMobileMenuOpen(false) : "")}
+              href={item.href}
+              className={`${className} ${
+                pathname === item.href ? "font-bold" : "no underline"
+              } underline leading-8 px-2 md:px-4 py-2 items-center underline-offset-8 break-normal inline-block hover:underline break-keep`}
+            >
+              {pathname === item.href && (
+                <motion.span
+                  layoutId="underline"
+                  className="absolute left-0 bottom-0 top-full block z-90 h-[1px] w-full bg-black dark:bg-white"
+                ></motion.span>
+              )}
+              {item.name}
+            </Link>
+          )}
         </li>
       ))}
-      <div  className={`${className} flex justify-center`}>
-       <SignedOut>
+      <div className={`${className} flex justify-center`}>
+        <SignedOut>
           <SignInButton />
         </SignedOut>
         <SignedIn>
           <UserButton />
           <RedirectOnSignIn />
         </SignedIn>
-        </div>
+      </div>
     </ul>
   );
 }

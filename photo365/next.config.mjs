@@ -3,14 +3,16 @@ import path from "path";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "standalone",
+  output: "standalone",  // Build as standalone
 
   images: {
-    domains: [
-      "images.ctfassets.net",
-      "downloads.ctfassets.net",
-      "images.pexels.com",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**", // Matches any domain (use cautiously)
+      },
     ],
+    unoptimized: true, // Bypass Next.js optimization
   },
 
   webpack: (config) => {
