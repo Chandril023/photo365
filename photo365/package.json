@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@clerk/backend": "^1.21.4",
+    "@clerk/nextjs": "^6.9.5",
     "@headlessui/react": "^1.7.19",
     "@heroicons/react": "^2.2.0",
     "@plaiceholder/next": "^3.0.0",

@@ -25,6 +25,28 @@
     snakecase-keys "5.4.4"
     tslib "2.4.1"
 
+"@clerk/clerk-react@^5.20.4":
+  version "5.20.4"
+  resolved "https://registry.npmjs.org/@clerk/clerk-react/-/clerk-react-5.20.4.tgz"
+  integrity sha512-32mOA35txmTUOIxbyFiJozQxkINqjJQMb2eO/4OKYA8ZYn3KbjXdbQyOR6LCJEE5k9rOUbYrCtspDb/HKgB7pA==
+  dependencies:
+    "@clerk/shared" "^2.20.4"
+    "@clerk/types" "^4.40.0"
+    tslib "2.4.1"
+
+"@clerk/nextjs@^6.9.5":
+  version "6.9.5"
+  resolved "https://registry.npmjs.org/@clerk/nextjs/-/nextjs-6.9.5.tgz"
+  integrity sha512-0d4pdjCGU6TyrLA5eGtlcFt9vVbwtRuXq3tWpYgvii3kwG8ulUsCLl52c48nmnHPl23O+/rqCiufzRuWzBTxwQ==
+  dependencies:
+    "@clerk/backend" "^1.21.4"
+    "@clerk/clerk-react" "^5.20.4"
+    "@clerk/shared" "^2.20.4"
+    "@clerk/types" "^4.40.0"
+    crypto-js "4.2.0"
+    server-only "0.0.1"
+    tslib "2.4.1"
+
 "@clerk/shared@^2.20.4":
   version "2.20.4"
   resolved "https://registry.npmjs.org/@clerk/shared/-/shared-2.20.4.tgz"
@@ -1549,6 +1571,11 @@ cross-spawn@^7.0.0, cross-spawn@^7.0.2:
     path-key "^3.1.0"
     shebang-command "^2.0.0"
     which "^2.0.1"
+
+crypto-js@4.2.0:
+  version "4.2.0"
+  resolved "https://registry.npmjs.org/crypto-js/-/crypto-js-4.2.0.tgz"
+  integrity sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q==
 
 cssesc@^3.0.0:
   version "3.0.0"
@@ -3484,7 +3511,7 @@ next-themes@^0.2.1:
   resolved "https://registry.npmjs.org/next-themes/-/next-themes-0.2.1.tgz"
   integrity sha512-B+AKNfYNIzh0vqQQKqQItTS8evEouKD7H5Hj3kmuPERwddR2TxvDSFZuTj6T7Jfn1oyeUyJMydPl1Bkxkh0W7A==
 
-next@*, next@^15.1.1, "next@^8.1.1-canary.54 || >=9.0.0", "next@>= 10.0.0":
+next@*, "next@^13.5.4 || ^14.0.3 || ^15.0.0", next@^15.1.1, "next@^8.1.1-canary.54 || >=9.0.0", "next@>= 10.0.0":
   version "15.1.1"
   resolved "https://registry.npmjs.org/next/-/next-15.1.1.tgz"
   integrity sha512-SBZlcvdIxajw8//H3uOR1G3iu3jxsra/77m2ulRIxi3m89p+s3ACsoOXR49JEAbaun/DVoRJ9cPKq8eF/oNB5g==
@@ -4151,6 +4178,11 @@ semver@^7.5.4, semver@^7.6.3:
   version "7.6.3"
   resolved "https://registry.npmjs.org/semver/-/semver-7.6.3.tgz"
   integrity sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==
+
+server-only@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.npmjs.org/server-only/-/server-only-0.0.1.tgz"
+  integrity sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==
 
 set-function-length@^1.2.2:
   version "1.2.2"
