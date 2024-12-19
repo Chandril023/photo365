@@ -1,4 +1,5 @@
 "use client"
+
 import React, { useState, useEffect } from 'react';
 import { X, Search, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -7,13 +8,11 @@ interface Image {
   tag: string;
   url: string;
   title?: string;
-  _class?: string;
 }
 
-const API_BASE_URL = "https://photo365.onrender.com/api/images";
-const IMAGES_PER_PAGE = 9; // 3x3 grid
-
-const MasonryGallery = () => {
+const GalleryComponent = ({
+  apiEndpoint = 'https://photo365.onrender.com/api/images'
+}) => {
   const [images, setImages] = useState<Image[]>([]);
   const [selectedImage, setSelectedImage] = useState<Image | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -22,19 +21,20 @@ const MasonryGallery = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const IMAGES_PER_PAGE = 9;
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
         setLoading(true);
-        const response = await fetch(API_BASE_URL);
+        const response = await fetch(apiEndpoint);
         if (!response.ok) {
           throw new Error('Failed to fetch images');
         }
         const data: Image[] = await response.json();
         setImages(data);
         
-        const uniqueTags = [...new Set(data.map((img: Image) => img.tag))] as string[];
+        const uniqueTags = [...new Set(data.map(img => img.tag))] as string[];
         setTags(uniqueTags);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to fetch images');
@@ -44,9 +44,8 @@ const MasonryGallery = () => {
     };
 
     fetchImages();
-  }, []);
+  }, [apiEndpoint]);
 
-  // Reset to first page when filters change
   useEffect(() => {
     setCurrentPage(1);
   }, [searchTerm, selectedTags]);
@@ -67,14 +66,6 @@ const MasonryGallery = () => {
     );
   };
 
-  const goToPreviousPage = () => {
-    setCurrentPage(prev => Math.max(prev - 1, 1));
-  };
-
-  const goToNextPage = () => {
-    setCurrentPage(prev => Math.min(prev + 1, totalPages));
-  };
-
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
@@ -92,7 +83,7 @@ const MasonryGallery = () => {
   }
 
   return (
-    <div className=" p-5 flex flex-col items-center">
+    <div className="p-5 flex flex-col items-center">
       {/* Search and Filter Section */}
       <div className="w-full max-w-4xl mb-8 space-y-4">
         <div className="relative max-w-md mx-auto">
@@ -164,7 +155,7 @@ const MasonryGallery = () => {
           {/* Pagination Controls */}
           <div className="flex items-center justify-center gap-4 mt-4">
             <button
-              onClick={goToPreviousPage}
+              onClick={() => setCurrentPage(p => Math.max(p - 1, 1))}
               disabled={currentPage === 1}
               className="p-2 rounded-full bg-gray-800 text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-700 transition-colors"
             >
@@ -176,7 +167,7 @@ const MasonryGallery = () => {
             </span>
             
             <button
-              onClick={goToNextPage}
+              onClick={() => setCurrentPage(p => Math.min(p + 1, totalPages))}
               disabled={currentPage === totalPages}
               className="p-2 rounded-full bg-gray-800 text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-700 transition-colors"
             >
@@ -221,4 +212,4 @@ const MasonryGallery = () => {
   );
 };
 
-export default MasonryGallery;
+export default GalleryComponent;
