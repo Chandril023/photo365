@@ -11,13 +11,9 @@ interface ImageData {
   title?: string;
 }
 
-const GalleryComponent = ({
-  apiEndpoint = "https://photo365.onrender.com/api/images",
-}) => {
+const Page = ({ apiEndpoint = "https://photo365.onrender.com/api/images" }) => {
   const [images, setImages] = useState<ImageData[]>([]);
-  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
-    null
-  );
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [tags, setTags] = useState<string[]>([]);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
@@ -48,11 +44,8 @@ const GalleryComponent = ({
   }, [apiEndpoint]);
 
   const filteredImages = images.filter((image) => {
-    const matchesSearch = image.tag
-      .toLowerCase()
-      .includes(searchTerm.toLowerCase());
-    const matchesTags =
-      selectedTags.length === 0 || selectedTags.includes(image.tag);
+    const matchesSearch = image.tag.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesTags = selectedTags.length === 0 || selectedTags.includes(image.tag);
     return matchesSearch && matchesTags;
   });
 
@@ -207,4 +200,4 @@ const GalleryComponent = ({
   );
 };
 
-export default GalleryComponent;
+export default Page;
