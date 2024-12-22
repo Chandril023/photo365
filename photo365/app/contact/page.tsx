@@ -134,7 +134,7 @@ async function Page({}: Props) {
   </div>
       </div>
       <p className="text-muted-foreground text-center p-10">
-        This page is maintained and designed by grwm365
+        A product of grwm365
       </p>
     </AnimationWrapper>
   );

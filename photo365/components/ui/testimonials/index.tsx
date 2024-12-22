@@ -43,11 +43,24 @@ const Testimonials = () => {
           width="640px"
           center
         />
+        <div className="mt-[60px] lg:mt-20">
 
-        <div className="mt-[60px] flex flex-wrap lg:mt-20 gap-y-8">
-          {testimonialData.map((testimonial, i) => (
-            <SingleTestimonial key={i} testimonial={testimonial} />
-          ))}
+          {/* Layout for small screens (scrollable) */}
+          <div className="flex flex-nowrap gap-x-8 overflow-x-auto no-scrollbar md:hidden">
+            {testimonialData.map((testimonial, i) => (
+              <div key={i} className="flex-none w-[300px]">
+                <SingleTestimonial testimonial={testimonial} />
+              </div>
+            ))}
+          </div>
+
+          {/* Layout for large screens (grid style) */}
+          <div className="mt-[60px] flex flex-wrap lg:mt-20 gap-y-8 hidden md:flex">
+            {testimonialData.map((testimonial, i) => (
+              <SingleTestimonial key={i} testimonial={testimonial} />
+            ))}
+          </div>
+
         </div>
       </div>
     </section>
@@ -55,3 +68,6 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
+
+
+
