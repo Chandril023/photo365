@@ -11,6 +11,7 @@ import About from "./about/page";
 import Page from "./contact/page";
 import { ClerkProvider } from "@clerk/nextjs";
 import MasonryGallery from "@/components/ui/imageGallery";
+import Testimonials from "@/components/ui/testimonials";
 
 interface ImageProps {
   src: string;
@@ -59,7 +60,9 @@ export default function Home() {
 <div className="overflow-x-hidden overflow-y-hidden w-full mb-8" id="about">
   <About />
 </div>
-
+<div className="overflow-x-hidden overflow-y-hidden w-full mb-8" id="about">
+<Testimonials />
+</div>
 <div className="overflow-x-hidden overflow-y-hidden w-full" id="contact">
   <Page />
 </div>

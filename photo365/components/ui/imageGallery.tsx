@@ -20,7 +20,7 @@ const ImageGallery = ({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const IMAGES_PER_PAGE = 9;
+  const IMAGES_PER_PAGE = 4;
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -84,7 +84,7 @@ const ImageGallery = ({
   }
 
   return (
-    <div className="p-5 flex flex-col items-center">
+    <div className="p-5 flex flex-col items-center lg:ml-10">
       {/* Search and Filter Section */}
       <div className="w-full max-w-4xl mb-8 space-y-4">
         <div className="relative max-w-md mx-auto">
@@ -132,31 +132,24 @@ const ImageGallery = ({
         </div>
       ) : (
         <>
-          {/* Image Grid */}
-          <div className="w-full max-w-6xl grid grid-cols-3 gap-2 mb-6">
+          {/* Horizontal Scrollable Grid */}
+          <div className="custom-scrollbar w-full max-w-6xl overflow-x-auto scrollbar-hidden flex gap-4 mb-6">
             {paginatedImages.map((image) => (
               <div
                 key={image._id}
-                className="relative overflow-hidden group cursor-pointer aspect-square"
+                className="flex-none w-[300px] relative overflow-hidden group cursor-pointer"
                 onClick={() => setSelectedImage(image)}
               >
-                <figure className="relative m-0 overflow-hidden h-full">
+                <figure className="relative m-0 overflow-hidden h-[300px]">
                   <Image
                     src={image.url}
                     alt={image.title || image.tag}
-                    width={1080} // Fixed Instagram-like size
-                    height={1080} // Fixed Instagram-like size
+                    width={1080}
+                    height={1080}
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300 
-                                 after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:w-[200%] after:h-[200%] 
-                                 after:bg-black after:bg-opacity-50 after:transform after:scale-0 after:rounded-full 
-                                 after:transition-transform after:duration-900 group-hover:after:scale-[2.5] after:-translate-x-1/2 after:-translate-y-1/2"
-                  />
-                  <figcaption className="absolute inset-0 flex items-center justify-center text-white text-lg p-4 opacity-0 
-                                       transform translate-y-8 transition-all duration-600 group-hover:opacity-100 
-                                       group-hover:translate-y-0 group-hover:delay-400 z-10">
+                  <figcaption className="absolute bottom-0 left-0 right-0 text-center bg-opacity-50 bg-black text-white p-2">
                     {image.title || image.tag}
                   </figcaption>
                 </figure>
@@ -209,8 +202,8 @@ const ImageGallery = ({
               <Image
                 src={selectedImage.url}
                 alt={selectedImage.title || selectedImage.tag}
-                width={1080} // Fixed Instagram-like size
-                height={1080} // Fixed Instagram-like size
+                width={1080}
+                height={1080}
                 className="w-full h-auto"
               />
               <div className="p-4">
